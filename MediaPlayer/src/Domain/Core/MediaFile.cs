@@ -2,6 +2,14 @@ namespace MediaPlayer.src.Domain.Core
 {
     public abstract class MediaFile : BaseEntity
     {
+        public MediaFile(string fileName, string filePath, TimeSpan duration, double speed)
+        {
+            FileName = fileName;
+            FilePath = FilePath;
+            Duration = duration;
+            Speed = speed;
+
+        }
         private double _playbackSpeed;
         private bool _isPlaying;
         private TimeSpan _currentPosition;
