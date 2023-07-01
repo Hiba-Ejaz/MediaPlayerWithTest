@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace MediaPlayer.Tests.src.Domain.Test
+namespace MediaPlayer.Tests.src
 {
-    public class MediaFileTest
+    public class DomainTests
     {
         [Fact]
         public void Test1()
