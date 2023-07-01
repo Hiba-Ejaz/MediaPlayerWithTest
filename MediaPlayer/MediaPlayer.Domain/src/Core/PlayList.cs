@@ -13,6 +13,7 @@ namespace MediaPlayer.src.Domain.Core
             _userId = userId;
         }
 
+
         public void AddNewFile(MediaFile file, int userId)
         {
             if (CheckUserId(userId))
