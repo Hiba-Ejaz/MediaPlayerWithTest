@@ -5,7 +5,7 @@ namespace MediaPlayer.src.Domain.Core
         public MediaFile(string fileName, string filePath, TimeSpan duration, double speed)
         {
             FileName = fileName;
-            FilePath = FilePath;
+            FilePath = filePath;
             Duration = duration;
             Speed = speed;
 
