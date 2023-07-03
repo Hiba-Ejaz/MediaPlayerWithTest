@@ -7,24 +7,51 @@ namespace MediaPlayer.src.Domain.Core
 
         public string Name { get; set; } = string.Empty;
 
-        private User(){}
+        private User() { }
 
         public static User Instance => lazyInstance.Value;
 
-        public void AddNewList(PlayList list)
+        public IReadOnlyList<PlayList> PlayLists
+        {
+            get { return _lists; }
+        }
+        public PlayList AddNewList(PlayList list)
         {
             _lists.Add(list);
+            return list;
         }
 
-        public void RemoveOneList(PlayList list)
+        public bool RemoveOneList(PlayList list, int userId)
         {
-            _lists.Remove(list);
+            if (userId == GetId)
+                if (_lists.Contains(list)){
+                    _lists.Remove(list);
+                    return true;
+                }
+                else
+                return false;
+                throw new ArgumentNullException("Playlist is not found");
+            
         }
 
-        public void EmptyOneList(PlayList list)
+        public bool RemoveAllLists(int userId)
+        {
+            if (userId == GetId)
+            {
+                _lists.Clear();
+                return true;
+            }
+            else
+            {
+                throw new ArgumentException("User not found");
+            }
+
+        }
+
+        public bool EmptyOneList(PlayList list)
         {
             if (_lists.Contains(list))
-                list.EmptyList(GetId);
+                 return list.EmptyList(GetId);
             else
                 throw new ArgumentNullException("Playlist is not found");
         }

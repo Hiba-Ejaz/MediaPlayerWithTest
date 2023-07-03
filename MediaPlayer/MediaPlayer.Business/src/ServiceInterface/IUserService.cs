@@ -2,16 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MediaPlayer.src.Domain.Core;
 
 namespace MediaPlayer.src.Business.ServiceInterface
 {
     public interface IUserService
     {
-        void AddNewList(string name, int userId);
-        void RemoveOneList(int listId, int userId);
-        void RemoveAllLists(int userId);
-        void EmptyOneList(int listId, int userId);
-        void GetAllList(int userId);
-        void GetListById(int listId);
+        PlayList AddNewList(string name, int userId);
+        bool RemoveOneList(int listId, int userId);
+        bool RemoveAllLists(int userId);
+        bool EmptyOneList(int listId, int userId);
+        IEnumerable<PlayList> GetAllList(int userId);
+        PlayList GetListById(int listId);
     }
 }
