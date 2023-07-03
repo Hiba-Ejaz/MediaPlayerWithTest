@@ -10,5 +10,8 @@ namespace MediaPlayer.src.Domain.Core
         public Audio(string fileName, string filePath, TimeSpan duration, double speed) : base(fileName, filePath, duration, speed)
         {
         }
+    public Audio(string fileName, string filePath, TimeSpan duration) : base(fileName, filePath, duration)
+        {
+        }
     }
 }

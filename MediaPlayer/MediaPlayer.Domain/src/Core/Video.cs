@@ -10,5 +10,9 @@ namespace MediaPlayer.src.Domain.Core
         public Video(string fileName, string filePath, TimeSpan duration, double speed) : base(fileName, filePath, duration, speed)
         {
         }
+        
+        public Video(string fileName, string filePath, TimeSpan duration) : base(fileName, filePath, duration)
+        {
+        }
     }
 }

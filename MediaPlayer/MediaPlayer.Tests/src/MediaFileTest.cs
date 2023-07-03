@@ -12,7 +12,9 @@ namespace MediaPlayer.Tests.src
       [Fact]
         public void createAudio_ValidData_ReturnAudio()
         {
+            //Arrange and act
             var audio = new Audio("audio.mp3", "path/to/audio.mp3", TimeSpan.FromMinutes(3), 1.5);
+            //Assert
             Assert.Equal("audio.mp3",audio.FileName);
             Assert.Equal("path/to/audio.mp3",audio.FilePath);
             Assert.Equal(TimeSpan.FromMinutes(3),audio.Duration);
@@ -39,7 +41,16 @@ namespace MediaPlayer.Tests.src
         [InlineData("video2.mp4", "path/to/video2.mp4",5,null)]
              public void createVideoFromDifferentConstructors_ValidData_ReturnVideo(string fileName, string filePath, int duration, double? speed)
         {
-            var video = new Video(fileName, filePath, TimeSpan.FromMinutes(duration), speed?? 1.0);
+            //Arrange
+            Video video;
+            if(speed.HasValue){
+            //act
+             video = new Video(fileName, filePath, TimeSpan.FromMinutes(duration), speed.Value);
+            }
+            else{
+               video = new Video(fileName, filePath, TimeSpan.FromMinutes(duration)); 
+            }
+//Assert
             Assert.Equal(fileName,video.FileName);
             Assert.Equal(filePath,video.FilePath);
             Assert.Equal(TimeSpan.FromMinutes(duration),video.Duration);
