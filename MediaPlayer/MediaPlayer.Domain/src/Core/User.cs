@@ -24,14 +24,15 @@ namespace MediaPlayer.src.Domain.Core
         public bool RemoveOneList(PlayList list, int userId)
         {
             if (userId == GetId)
-                if (_lists.Contains(list)){
+                if (_lists.Contains(list))
+                {
                     _lists.Remove(list);
                     return true;
                 }
                 else
-                return false;
-                throw new ArgumentNullException("Playlist is not found");
-            
+                    return false;
+            throw new ArgumentNullException("Playlist is not found");
+
         }
 
         public bool RemoveAllLists(int userId)
@@ -51,7 +52,7 @@ namespace MediaPlayer.src.Domain.Core
         public bool EmptyOneList(PlayList list)
         {
             if (_lists.Contains(list))
-                 return list.EmptyList(GetId);
+                return list.EmptyList(GetId);
             else
                 throw new ArgumentNullException("Playlist is not found");
         }

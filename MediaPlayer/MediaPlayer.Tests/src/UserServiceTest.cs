@@ -56,9 +56,10 @@ namespace MediaPlayer.Tests.src
             Assert.True(result);
         }
         [Fact]
-        public void GetListById_ValidData_ReturnList(){
-             var fakeRepository = new FakeUserRepository();
-            var userService = new UserService(fakeRepository); 
+        public void GetListById_ValidData_ReturnList()
+        {
+            var fakeRepository = new FakeUserRepository();
+            var userService = new UserService(fakeRepository);
             userService.GetListById(1);
         }
     }
@@ -117,7 +118,7 @@ namespace MediaPlayer.Tests.src
 
         public PlayList GetListById(int listId)
         {
-            var playList=_playLists.FirstOrDefault(p=>p.GetId==listId);
+            var playList = _playLists.FirstOrDefault(p => p.GetId == listId);
             return playList;
         }
     }
