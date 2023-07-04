@@ -17,7 +17,7 @@ internal class Program
         var mediaService = new MediaService(mediaRepository);
         var mediaController = new MediaController(mediaService);
 
-        var playListRepository = new PlayListRepository();
+        var playListRepository = new PlayListRepository(user,mediaRepository);
         var playListService = new PlayListService(playListRepository);
         var playListController = new PlayListController(playListService);
 

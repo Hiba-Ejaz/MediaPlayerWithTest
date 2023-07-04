@@ -8,8 +8,8 @@ namespace MediaPlayer.src.Domain.RepositoryInterface
 {
     public interface IPlayListRepository
     {
-        void AddNewFile(int playListId, int fileId, int userId);
-        void RemoveFile(int playListId, int fileId, int userId);
-        void EmptyList(int playListId, int userId);
+        bool AddNewFile(int playListId, int fileId, int userId);
+        bool RemoveFile(int playListId, int fileId, int userId);
+        bool EmptyList(int playListId, int userId);
     }
 }

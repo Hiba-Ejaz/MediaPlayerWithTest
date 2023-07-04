@@ -18,16 +18,22 @@ namespace MediaPlayer.src.Domain.Core
 
         public int GetId => _playlistId;
         public int GetUserId => _userId;
-        public void AddNewFile(MediaFile file, int userId)
+        public bool AddNewFile(MediaFile file, int userId)
         {
-            if (CheckUserId(userId))
+            if (CheckUserId(userId)){
                 _files.Add(file);
+                return true;
+            }
+            return false;
         }
 
-        public void RemoveFile(MediaFile file, int userId)
+        public bool RemoveFile(MediaFile file, int userId)
         {
-            if (CheckUserId(userId))
+            if (CheckUserId(userId)){
                 _files.Remove(file);
+                return true;
+            }
+           return false;
         }
 
         public bool EmptyList(int userId)
